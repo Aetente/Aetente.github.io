@@ -1,8 +1,8 @@
 let state2 = [];
 
-function findUserInBuddit(buddit,name){
+export function findUserIncomment(comment,name){
     let found = false;
-    buddit.usersLiked.map(user=>{
+    comment.usersLiked.map(user=>{
         if(user==name){
             found=true;
             return
@@ -11,7 +11,7 @@ function findUserInBuddit(buddit,name){
     return found;
 }
 
-function putCommentInComment(holder,gotComment,key,a,commentArr,holdIndex){
+export function putCommentInComment(holder,gotComment,key,a,commentArr,holdIndex){
     a+=1;
     if(holder.length>0){
         holder.map((comment,index)=>{
@@ -31,9 +31,9 @@ function putCommentInComment(holder,gotComment,key,a,commentArr,holdIndex){
 }
 
 
-const buddits = (state = [],action) => {
+const comments = (state = [],action) => {
     switch(action.type){
-        case 'ADD_BUDDIT':
+        case 'ADD_POST_COMMENT':
             return [
                 ...state,
                 {
@@ -49,43 +49,43 @@ const buddits = (state = [],action) => {
             ]
         case 'VOTE_UP':
             state2 = [];
-            // let found = findVotedBudditsInUser(action.payload.id,action.payload.name,state);
+            // let found = findVotedcommentsInUser(action.payload.id,action.payload.name,state);
 
-            state.map((buddit)=>{
-                if(buddit.id==action.payload.id&&!findUserInBuddit(buddit,action.payload.name)){
-                    buddit.score+=1;
-                    buddit.usersLiked.push(action.payload.name)
+            state.map((comment)=>{
+                if(comment.id==action.payload.id&&!findUserIncomment(comment,action.payload.name)){
+                    comment.score+=1;
+                    comment.usersLiked.push(action.payload.name)
                 }
-                state2.push(buddit);
+                state2.push(comment);
             });
             return state2;
         case 'VOTE_DOWN':
             state2 = [];
-            state.map((buddit)=>{
-                if(buddit.id==action.payload.id&&!findUserInBuddit(buddit,action.payload.name)){
-                    buddit.score-=1;
-                    buddit.usersLiked.push(action.payload.name)
+            state.map((comment)=>{
+                if(comment.id==action.payload.id&&!findUserIncomment(comment,action.payload.name)){
+                    comment.score-=1;
+                    comment.usersLiked.push(action.payload.name)
                 }
-                state2.push(buddit);
+                state2.push(comment);
             });
             return state2;
         case 'ADD_COMMENT':
             state2=[];
-            state.map((buddit)=>{
-                if(buddit.id==action.payload.id){
-                    buddit.comments.push(action.payload.comment);
+            state.map((comment)=>{
+                if(comment.id==action.payload.id){
+                    comment.comments.push(action.payload.comment);
                 }
-                state2.push(buddit);
+                state2.push(comment);
             });
             return state2;
         case 'ADD_SUB_COMMENT':
             state2=[];
-            state.map((buddit)=>{
-                if(buddit.id==action.payload.id){
+            state.map((comment)=>{
+                if(comment.id==action.payload.id){
 
-                    buddit.comments = putCommentInComment(buddit.comments,action.payload.gotComment,action.payload.key,0,[],"");
+                    comment.comments = putCommentInComment(comment.comments,action.payload.gotComment,action.payload.key,0,[],"");
                 }
-                state2.push(buddit);
+                state2.push(comment);
             })
             return state2;
         default:
@@ -93,4 +93,4 @@ const buddits = (state = [],action) => {
     }
 }
 
-export default buddits;
+export default comments;

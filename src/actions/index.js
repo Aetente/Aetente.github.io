@@ -8,9 +8,9 @@ export const addUser = (user)=>(
 )
 
 let id = 0;
-export const addBuddit = (title,image,date,username) => (
+export const addPostComment = (title,image,date,username) => (
     {
-        type: 'ADD_BUDDIT',
+        type: 'ADD_POST_COMMENT',
         payload: {
             id: id++,
             title: title,
