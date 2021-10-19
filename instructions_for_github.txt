@@ -1,0 +1,1 @@
+after build take index.html from build folder, paste in root, change every "/static/..." to "build/static/..."
