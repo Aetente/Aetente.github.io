@@ -1,23 +1,25 @@
 import React from 'react';
-// import logo from 'logo192.svg';
+import "./styles.css";
+import CssLines from "../CssLines/CssLines"
 
 function Home() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src="/logo192.png" className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="main">
+        <div className="two-part-block">
+          <div>
+            <header className="main-wrap">
+              <div className="stage">Yehoshua Kopyrin</div>
+              <div>Hello, my name is</div> 
+              <div>Yehoshua. I am a</div> 
+              <div>Fullstack developer.</div>
+            </header>
+          </div>
+          <div>
+            <CssLines />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

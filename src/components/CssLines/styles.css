@@ -1,0 +1,10 @@
+.test-line {
+  width: 30px;
+  height: 100px;
+  background-color: rgb(240, 240, 240);
+}
+
+.hold-lines {
+  display: flex;
+  align-items: center;
+}

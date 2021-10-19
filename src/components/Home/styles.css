@@ -1,0 +1,38 @@
+.two-part-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.main {
+  padding: 270px 72px;
+}
+
+.main-wrap {
+  max-width: 490px;
+  min-height: 100vh;
+  font-size: 56px;
+  color: white;
+  margin: 0 auto;
+  text-align: start;
+}
+
+.stage {
+  position: relative;
+  margin-bottom: 24px;
+  padding-left: 68px;
+  font-size: 20px;
+  line-height: 1.4;
+  font-weight: 600;
+  color: rgb(240, 240, 240);
+}
+
+.stage::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 0;
+  width: 52px;
+  height: 2px;
+  background: rgb(240, 240, 240);
+}

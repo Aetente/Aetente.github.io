@@ -10,7 +10,6 @@ class Navigation extends Component {
   }
   render() {
     let {users} = this.props;
-    console.log("USERS", users)
     return (
       <Router>
         <Route exact path="/" component={Home} />
