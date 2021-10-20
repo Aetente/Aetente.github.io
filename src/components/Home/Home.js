@@ -1,10 +1,13 @@
 import React from 'react';
 import "./styles.css";
-import CssLines from "../CssLines/CssLines"
+import CssLines from "../CssLines/CssLines";
+import Header from "../Header/Header";
+import Portfolio from "../Portfolio/Portfolio";
 
 function Home() {
   return (
     <div className="App">
+      <Header />
       <div className="main">
         <div className="two-part-block">
           <div>
@@ -19,6 +22,7 @@ function Home() {
             <CssLines />
           </div>
         </div>
+        <Portfolio />
       </div>
     </div>
   );

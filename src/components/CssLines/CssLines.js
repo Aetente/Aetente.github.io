@@ -40,7 +40,7 @@ class CssLines extends Component {
             let colorRangeB = Math.round(colorRangeG / 1.6);
             let colorString = `rgb(${200 + colorRangeR},${200 + colorRangeG},${200 + colorRangeB})`;
             let rectSpeed = this.rangedRandom(0.3, 0.7);
-            let rectHeight = Math.round(this.rangedRandom(80, 120));
+            let rectHeight = Math.round(this.rangedRandom(120, 220));
             let rectWidth = Math.round(this.rangedRandom(15, 50));
             return {
                 i,
@@ -56,12 +56,28 @@ class CssLines extends Component {
     mapLines = () => {
         let {rects} = this.state;
         return rects.map((r) => {
-            return (
+            let windowHeight = window.innerHeight;
+            let opacity = 1 - this.state.offsetY / windowHeight;
+            let visibility = "visible";
+            console.log(opacity)
+            if (opacity > 0.2) {
+                return (
+                    <div
+                        className="test-line"
+                        style={{
+                            opacity,
+                            backgroundColor: r.colorString,
+                            transform: `translateY(${this.state.offsetY * r.rectSpeed}px)`,
+                            height: `${r.rectHeight}px`,
+                            width: `${r.rectWidth}px`
+                        }}
+                    ></div>
+                )
+            }
+            return ( 
                 <div
-                    className="test-line"
                     style={{
-                        backgroundColor: r.colorString,
-                        transform: `translateY(${this.state.offsetY * r.rectSpeed}px)`,
+                        opacity: 0,
                         height: `${r.rectHeight}px`,
                         width: `${r.rectWidth}px`
                     }}

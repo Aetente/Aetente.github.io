@@ -9,7 +9,7 @@
 }
 
 .main-wrap {
-  max-width: 490px;
+  max-width: 500px;
   min-height: 100vh;
   font-size: 56px;
   color: white;
@@ -35,4 +35,10 @@
   width: 52px;
   height: 2px;
   background: rgb(240, 240, 240);
+}
+
+@media screen and (max-width: 914px) {
+  .two-part-block {
+    flex-direction: column;
+  }
 }

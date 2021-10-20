@@ -6,5 +6,5 @@
 
 .hold-lines {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
 }
