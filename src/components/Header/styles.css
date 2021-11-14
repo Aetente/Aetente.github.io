@@ -2,10 +2,18 @@
   display: flex;
   padding: 3em;
   position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.header-main {
+  margin-right: auto;
+  display: flex;
 }
 
 .header-block {
-  margin: 16px;
+  margin: 32px;
   display: flex;
   align-items: center;
   font-size: 20px;
@@ -16,9 +24,37 @@
 }
 
 .header-block:nth-child(2) {
-  margin-left: 64px;
+  margin-left: 68px;
 }
 
 svg {
   margin-right: 15px;
+}
+
+.button {
+  width: 64px;
+  height: 64px;
+  padding: 5px;
+  font-size: 0;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.button::before,
+.button::after {
+  content: "";
+  display: inline-block;
+  width: 32px;
+  height: 2px;
+  background: rgb(240, 240, 240);
+}
+
+.button::before {
+  margin-bottom: 4px;
+}
+
+.button::after {
+  margin-top: 4px;
 }

@@ -59,7 +59,6 @@ class CssLines extends Component {
             let windowHeight = window.innerHeight;
             let opacity = 1 - this.state.offsetY / windowHeight;
             let visibility = "visible";
-            console.log(opacity)
             if (opacity > 0.2) {
                 return (
                     <div
