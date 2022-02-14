@@ -1,23 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.6d5fb579.chunk.css",
-    "main.js": "/static/js/main.07c24b67.chunk.js",
-    "main.js.map": "/static/js/main.07c24b67.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.b2ae06cf.js",
-    "runtime-main.js.map": "/static/js/runtime-main.b2ae06cf.js.map",
-    "static/js/2.7ce34b43.chunk.js": "/static/js/2.7ce34b43.chunk.js",
-    "static/js/2.7ce34b43.chunk.js.map": "/static/js/2.7ce34b43.chunk.js.map",
+    "main.css": "/static/css/main.c99631da.css",
+    "main.js": "/static/js/main.101d1694.js",
+    "static/js/787.79ec8e6c.chunk.js": "/static/js/787.79ec8e6c.chunk.js",
+    "static/media/icon-grid.svg": "/static/media/icon-grid.ac3b43b2a18687f377d79aa3b0c0ccfc.svg",
+    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/index.html",
-    "precache-manifest.9730d7b872a3efb0e76e3ff03098b69e.js": "/precache-manifest.9730d7b872a3efb0e76e3ff03098b69e.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.6d5fb579.chunk.css.map": "/static/css/main.6d5fb579.chunk.css.map",
-    "static/js/2.7ce34b43.chunk.js.LICENSE.txt": "/static/js/2.7ce34b43.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/static/media/logo.5d5d9eef.svg"
+    "static/media/icon-design-grid.svg": "/static/media/icon-design-grid.876e37be15afc995ccaf6b8e6c1f28c6.svg",
+    "static/media/undo.svg": "/static/media/undo.d313609b027f88da6aea616a3a2f9c58.svg",
+    "static/media/icon-burger.svg": "/static/media/icon-burger.706819571a30921b099a5c6384399fba.svg",
+    "static/media/icon-arrow.svg": "/static/media/icon-arrow.ec2e8ced0eb48d37293baef02d40355a.svg",
+    "static/media/icon-plus.svg": "/static/media/icon-plus.17535d8e8b98b35ace667035ee3cb845.svg",
+    "static/media/close.svg": "/static/media/close.397c8741cb500b0a051cd55890247afb.svg",
+    "static/media/icon-search.svg": "/static/media/icon-search.722a744841e8e1e46fbb58f58bcbc3a9.svg",
+    "static/media/ArrowDown.svg": "/static/media/ArrowDown.01087834820c37f7ceaf.svg",
+    "static/media/caret-down.svg": "/static/media/caret-down.f86d018011c203974f07edb22a9b2667.svg",
+    "main.c99631da.css.map": "/static/css/main.c99631da.css.map",
+    "main.101d1694.js.map": "/static/js/main.101d1694.js.map",
+    "787.79ec8e6c.chunk.js.map": "/static/js/787.79ec8e6c.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.b2ae06cf.js",
-    "static/js/2.7ce34b43.chunk.js",
-    "static/css/main.6d5fb579.chunk.css",
-    "static/js/main.07c24b67.chunk.js"
+    "static/css/main.c99631da.css",
+    "static/js/main.101d1694.js"
   ]
 }
