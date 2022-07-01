@@ -1,64 +1,47 @@
-import React, { Component } from "react";
+import React from "react";
 import "./styles.css";
 import CssLines from "../CssLines/CssLines";
 import Header from "../Header/Header";
 import Portfolio from "../Portfolio/Portfolio";
 import Menu from "../Menu/Menu";
-import { connect } from "react-redux";
 import { openMenu, closeMenu } from "../../actions";
+import { useDispatch, useSelector } from "react-redux";
 
-class Home extends Component {
-  constructor() {
-    super();
-    this.state = {};
-    this.triggerMenu = this.triggerMenu.bind(this);
-  }
+const Home = () => {
+  const dispatch = useDispatch();
+  const isOpenMenu = useSelector((state) => state.ui.isOpenMenu);
 
-  triggerMenu = () => {
-    let bodyOverflow = document.body.style.overflow;
-    if (this.props.isOpenMenu) {
+  const triggerMenu = () => {
+    if (isOpenMenu) {
       document.body.style.overflow = "auto";
-      this.props.closeMenu();
+      dispatch(closeMenu());
     } else {
       document.body.style.overflow = "hidden";
-      this.props.openMenu();
+      dispatch(openMenu());
     }
   };
-
-  render() {
-    let { isOpenMenu } = this.props;
-    return (
-      <div className="App">
-        {isOpenMenu && <Menu triggerMenu={this.triggerMenu} />}
-        <Header triggerMenu={this.triggerMenu} />
-        <div className="main">
-          <div className="two-part-block">
-            <div>
-              <header className="main-wrap">
-                <div className="stage">Yehoshua Kopyrin</div>
-                <div>Hello, my name is</div>
-                <div>Yehoshua. I am a</div>
-                <div>Fullstack developer.</div>
-              </header>
-            </div>
-            <div>
-              <CssLines />
-            </div>
+  return (
+    <div className="App">
+      {isOpenMenu && <Menu triggerMenu={triggerMenu} />}
+      <Header triggerMenu={triggerMenu} />
+      <div className="main">
+        <div className="two-part-block">
+          <div>
+            <header className="main-wrap">
+              <div className="stage">Yehoshua Kopyrin</div>
+              <div>Hello, my name is</div>
+              <div>Yehoshua. I am a</div>
+              <div>Fullstack developer.</div>
+            </header>
           </div>
-          <Portfolio />
+          <div>
+            <CssLines />
+          </div>
         </div>
+        <Portfolio />
       </div>
-    );
-  }
-}
-
-let mapStateToProps = (state) => {
-  return {
-    isOpenMenu: state.ui.isOpenMenu,
-  };
+    </div>
+  );
 };
 
-export default connect(mapStateToProps, {
-  openMenu,
-  closeMenu,
-})(Home);
+export default Home;

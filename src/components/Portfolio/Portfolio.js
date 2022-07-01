@@ -21,7 +21,7 @@ class Portfolio extends Component {
           src: "https://github.com/aetente/url_shortener",
           name: "URL shortener",
           description:
-            "It shortens urls as from http://google.com to http://your_ip:some_port/s/fghhjkd",
+            "It shortens urls. For example from http://google.com to http://something/s/fghhjkd",
         },
         {
           src: "https://github.com/aetente/lunar_lander",
@@ -49,7 +49,7 @@ class Portfolio extends Component {
   render() {
     let { links } = this.state;
     return (
-      <div>
+      <div style={{display: "flex", flexDirection: "column", alignItems: "center", gap: "30px"}}>
         <div className="portfolio-header">PORTFOLIO</div>
         <div className="portfolio-table">{this.mapLinks(links)}</div>
       </div>

@@ -8,6 +8,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  animation: open-menu 1s;
+}
+
+@keyframes open-menu {
+  0% {width: 0%};
+  100% {width: 100%}
 }
 
 .close-menu {

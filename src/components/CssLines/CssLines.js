@@ -1,47 +1,34 @@
 
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import "./styles.css";
 
-class CssLines extends Component {
+const PALETTE = [
+    "#0D7377",
+    "#32E0C4",
+    "#EEEEEE"
+]
 
-    constructor() {
-        super();
-        this.state = {
-            offsetY: 0,
-            rects: [],
-            handleScroll: (e) => {
-                this.setState({ offsetY: window.pageYOffset })
-            }
-        };
-        this.mapLines = this.mapLines.bind(this);
-        this.rangedRandom = this.rangedRandom.bind(this);
-        this.genRects = this.genRects.bind(this);
+const CssLines = () => {
+
+    const [offsetY, setOffsetY] = useState(0);
+    const [rects, setRects] = useState([]);
+    
+    const handleScroll = (e) => {
+        setOffsetY(window.pageYOffset)
     }
 
-    componentDidMount() {
-        window.addEventListener("scroll", this.state.handleScroll)
-        this.genRects()
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener("scroll", this.state.handleScroll)
-    }
-
-    rangedRandom = (min, max) => {
-        return Math.random() * (max - min) + min;
-    }
-
-    genRects = () => {
-        let range = [...Array(10).keys()];
-        let rangeLength = range.length;
-        let rects = range.map((i) => {
-            let colorRangeR = Math.round(Math.random() * 40);
-            let colorRangeG = Math.round(colorRangeR / 1.6);
-            let colorRangeB = Math.round(colorRangeG / 1.6);
-            let colorString = `rgb(${200 + colorRangeR},${200 + colorRangeG},${200 + colorRangeB})`;
-            let rectSpeed = this.rangedRandom(0.3, 0.7);
-            let rectHeight = Math.round(this.rangedRandom(120, 220));
-            let rectWidth = Math.round(this.rangedRandom(15, 50));
+    const genRects = () => {
+        const range = [...Array(10).keys()];
+        const rects = range.map((i) => {
+            // let colorRangeR = Math.round(Math.random() * 40);
+            // let colorRangeG = Math.round(colorRangeR / 1.6);
+            // let colorRangeB = Math.round(colorRangeG / 1.6);
+            // let colorString = `rgb(${200 + colorRangeR},${200 + colorRangeG},${200 + colorRangeB})`;
+            const colorToChoose = Math.round(Math.random() * (PALETTE.length - 1));
+            const colorString = PALETTE[colorToChoose];
+            const rectSpeed = rangedRandom(0.3, 0.7);
+            const rectHeight = Math.round(rangedRandom(120, 220));
+            const rectWidth = Math.round(rangedRandom(15, 50));
             return {
                 i,
                 colorString,
@@ -50,14 +37,17 @@ class CssLines extends Component {
                 rectWidth
             }
         });
-        this.setState({rects});
+        setRects(rects);
     }
 
-    mapLines = () => {
-        let {rects} = this.state;
+    const rangedRandom = (min, max) => {
+        return Math.random() * (max - min) + min;
+    }
+
+    const mapLines = () => {
         return rects.map((r) => {
-            let windowHeight = window.innerHeight;
-            let opacity = 1 - this.state.offsetY / windowHeight;
+            const windowHeight = window.innerHeight;
+            const opacity = 1 - offsetY / windowHeight;
             let visibility = "visible";
             if (opacity > 0.2) {
                 return (
@@ -66,7 +56,7 @@ class CssLines extends Component {
                         style={{
                             opacity,
                             backgroundColor: r.colorString,
-                            transform: `translateY(${this.state.offsetY * r.rectSpeed}px)`,
+                            transform: `translateY(${offsetY * r.rectSpeed}px)`,
                             height: `${r.rectHeight}px`,
                             width: `${r.rectWidth}px`
                         }}
@@ -85,13 +75,19 @@ class CssLines extends Component {
         })
     }
 
-    render() {
-        return (
-            <div className="hold-lines">
-                {this.mapLines()}
-            </div>
-        );
-    }
+    useEffect(() => {
+        genRects();
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll)
+        }
+    }, [])
+
+    return (
+        <div className="hold-lines">
+            {mapLines()}
+        </div>
+    );
 }
 
 export default CssLines;

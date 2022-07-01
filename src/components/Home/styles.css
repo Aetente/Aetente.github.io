@@ -12,7 +12,7 @@
   max-width: 500px;
   min-height: 100vh;
   font-size: 56px;
-  color: white;
+  color: var(--text);
   margin: 0 auto;
   text-align: start;
 }
@@ -24,7 +24,7 @@
   font-size: 20px;
   line-height: 1.4;
   font-weight: 600;
-  color: rgb(240, 240, 240);
+  color: var(--text);
 }
 
 .stage::before {
@@ -34,7 +34,7 @@
   left: 0;
   width: 52px;
   height: 2px;
-  background: rgb(240, 240, 240);
+  background: var(--text);
 }
 
 @media screen and (max-width: 914px) {
